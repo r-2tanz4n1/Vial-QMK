@@ -4,16 +4,17 @@ on:
   push:
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: ghcr.io/qmk/qmk_cli
+    container: ghcr.io/qmk/qmk_cli@sha256:16c4916e95b99bf88d27b15aec8db409ee17265d1710287fde248c6666508966
 
     steps:
-      - name: Configure git safe directory
-        run: git config --global --add safe.directory '*'
-
-      - name: Checkout custom files
+      - name: Checkout your repo
         uses: actions/checkout@v4
         with:
           path: custom
@@ -26,10 +27,15 @@ jobs:
           submodules: recursive
           path: vial-qmk
 
-      - name: Copy custom keyboard files
+      - name: Mark directories as safe
         run: |
-          mkdir -p vial-qmk/keyboards/sofle/blue/keymaps
-          cp -r custom/keyboards/sofle/blue/keymaps/vial vial-qmk/keyboards/sofle/blue/keymaps/
+          git config --global --add safe.directory "$GITHUB_WORKSPACE/custom"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE/vial-qmk"
+
+      - name: Copy Sofle Blue files
+        run: |
+          mkdir -p vial-qmk/keyboards/sofle
+          cp -r custom/keyboards/sofle/blue vial-qmk/keyboards/sofle/
 
       - name: Build firmware
         working-directory: vial-qmk
