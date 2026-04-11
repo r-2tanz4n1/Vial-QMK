@@ -5,7 +5,6 @@
  */
 
 // clang-format off
-
 #pragma once
 
 // Vial Support
@@ -15,20 +14,20 @@
 #define VIAL_UNLOCK_COMBO_ROWS { 0, 5, 3, 8 }
 #define VIAL_UNLOCK_COMBO_COLS { 0, 0, 0, 0 }
 
+// Split configuration
 #define MASTER_RIGHT
 
+// Caps Word configuration
 #define CAPS_WORD_TOGGLE_KEY
 //#define CAPS_WORD_INVERT_ON_SHIFT
-#define CAPS_WORD_IDLE_TIMEOUT 5000  // 5 seconds.
+#define CAPS_WORD_IDLE_TIMEOUT 5000  // 5 seconds
 
-//Auto shift
+// Auto Shift configuration
 #define AUTO_SHIFT_TIMEOUT 145
-//Para conseguir repetir as teclas:
-#define AUTO_SHIFT_REPEAT
 
-
-
-// Trouxe do config do qmk normal:
+// Tap/hold tuning
+// Base tapping term is 170ms in info.json ("tapping.term").
+// QUICK_TAP_TERM adjusts how fast taps are recognized distinctly.
 #define QUICK_TAP_TERM 120
 
 #ifndef FLOW_TAP_TERM
@@ -39,15 +38,5 @@
 #    define CHORDAL_HOLD
 #endif
 
+// Extra delay for tap_code; note qmk.tap_keycode_delay is set in info.json as 10
 #define TAP_CODE_DELAY 10
-
-/* tirar mouse
-#define MOUSEKEY_DELAY 100
-#define MOUSEKEY_INTERVAL 16
-#define MOUSEKEY_TIME_TO_MAX 40
-#define MOUSEKEY_MAX_SPEED 8
-
-#define MOUSEKEY_WHEEL_DELAY 100
-#define MOUSEKEY_WHEEL_INTERVAL 16
-#define MOUSEKEY_WHEEL_TIME_TO_MAX 40
-*/
