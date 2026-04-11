@@ -45,11 +45,16 @@ jobs:
         working-directory: vial-qmk
         run: qmk compile -kb sofle/blue -km vial -e CONVERT_TO=promicro_rp2040
 
+      - name: Find firmware files
+        run: |
+          find vial-qmk -type f \( -name "*.uf2" -o -name "*.hex" -o -name "*.bin" \)
+
       - name: Upload firmware
         uses: actions/upload-artifact@v4
         with:
           name: sofle-blue-vial-firmware
           path: |
-            vial-qmk/.build/*.uf2
-            vial-qmk/.build/*.hex
-            vial-qmk/.build/*.bin
+            vial-qmk/**/*.uf2
+            vial-qmk/**/*.hex
+            vial-qmk/**/*.bin
+          if-no-files-found: error
