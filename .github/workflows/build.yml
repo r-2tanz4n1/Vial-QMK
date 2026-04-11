@@ -32,6 +32,10 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE/custom"
           git config --global --add safe.directory "$GITHUB_WORKSPACE/vial-qmk"
 
+      - name: Install Vial-QMK Python requirements
+        working-directory: vial-qmk
+        run: python3 -m pip install -U -r requirements.txt
+
       - name: Copy Sofle Blue files
         run: |
           mkdir -p vial-qmk/keyboards/sofle
