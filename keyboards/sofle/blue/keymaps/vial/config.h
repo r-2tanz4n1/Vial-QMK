@@ -31,8 +31,13 @@
 // Trouxe do config do qmk normal:
 #define QUICK_TAP_TERM 120
 
-#define FLOW_TAP_TERM 135
-#define CHORDAL_HOLD
+#ifndef FLOW_TAP_TERM
+#    define FLOW_TAP_TERM 135
+#endif
+
+#ifndef CHORDAL_HOLD
+#    define CHORDAL_HOLD
+#endif
 
 #define TAP_CODE_DELAY 10
 
