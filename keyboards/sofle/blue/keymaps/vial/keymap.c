@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,   KC_NO,         KC_NO,         KC_NO,         KC_NO,         KC_NO,                          KC_NO,         KC_NO,         KC_NO,         KC_NO,          KC_NO,          KC_NO,
         KC_ESC,  G(C(S(A(KC_1)))), G(C(S(A(KC_2)))), G(C(S(A(KC_3)))), G(C(S(A(KC_4)))), G(C(S(A(KC_5)))), C(S(KC_1)),    C(S(KC_W)),    C(S(KC_E)),    C(S(KC_R)),     C(S(KC_T)),     C(S(KC_3)),
         KC_NO,   G(C(S(A(KC_6)))), G(C(S(A(KC_7)))), G(C(S(A(KC_8)))), G(C(S(A(KC_9)))), G(C(S(A(KC_0)))), C(S(KC_2)),    C(S(KC_S)),    C(S(KC_D)),    C(S(KC_F)),     C(S(KC_G)),     C(S(KC_4)),
-        KC_NO,   KC_NO,         KC_MPRV,       KC_MPLY,       KC_MNXT,       KC_NO,   KC_TRNS, KC_TRNS,      C(S(KC_Z)),    C(S(KC_X)),    C(S(KC_C)),    C(S(KC_V)),     C(S(KC_B)),     C(S(KC_5)),
+        QK_BOOT, KC_NO,         KC_MPRV,       KC_MPLY,       KC_MNXT,       KC_NO,   KC_TRNS, KC_TRNS,      C(S(KC_Z)),    C(S(KC_X)),    C(S(KC_C)),    C(S(KC_V)),     C(S(KC_B)),     C(S(KC_5)),
                            KC_VOLD, KC_VOLU, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BRIU, KC_BRID
     )
 };
