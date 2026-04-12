@@ -1,6 +1,6 @@
 /* Copyright 2020 Josef Adamcik + 2026 Raphael Stanzani
  * Default keymap. 
- * Must be adjusted in Vial, specificaly the LCS/RCS.
+ * Must be adjusted in Vial, to add the combos.
  */
 #include QMK_KEYBOARD_H
 
@@ -25,7 +25,7 @@ enum layers {
 #define NUM_ENT LT(_NUM, KC_ENT)
 #define NUM_BSP LT(_NUM, KC_BSPC)
 #define FN_VOLU LT(_FN, KC_VOLU)
-#define FN_TAB  LT(_FN, KC_TAB)
+#define FN_BRIU LT(_FN, KC_BRIU)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                  KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_RBRC,
         KC_MINS, HM_A,    HM_S,    HM_D,    HM_F,    KC_G,                                  KC_H,    HM_J,    HM_K,    HM_L,    HM_SCLN, KC_QUOT,
         CW_TOGG, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_NO,    KC_NO,              KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_ENT),
-                          KC_VOLD, FN_VOLU, HYPR_T(KC_TAB), NAV_SPC, NUM_ENT, NUM_BSP, NAV_SPC, HYPR_T(KC_DEL), KC_BRIU, KC_BRID
+                          KC_VOLD, FN_VOLU, HYPR_T(KC_TAB), NAV_SPC, NUM_ENT, NUM_BSP, NAV_SPC, HYPR_T(KC_DEL), FN_BRIU, KC_BRID
     ),
 
     [_NAV] = LAYOUT(
