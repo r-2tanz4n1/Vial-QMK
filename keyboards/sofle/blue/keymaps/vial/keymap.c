@@ -11,7 +11,7 @@ enum layers {
     _FN
 };
 
-#define HM_A LCTL_T(KC_A)
+#define HM_ESC LCTL_T(KC_ESC)
 #define HM_S LALT_T(KC_S)
 #define HM_D LGUI_T(KC_D)
 #define HM_F LSFT_T(KC_F)
@@ -30,10 +30,10 @@ enum layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         KC_NO,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                  KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_NO,
-        KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                  KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_RBRC,
-        KC_MINS, HM_A,    HM_S,    HM_D,    HM_F,    KC_G,                                  KC_H,    HM_J,    HM_K,    HM_L,    HM_SCLN, KC_QUOT,
-        CW_TOGG, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_NO,    KC_NO,              KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_ENT),
-                          KC_VOLD, FN_VOLU, HYPR_T(KC_TAB), NAV_SPC, NUM_ENT, NUM_BSP, NAV_SPC, HYPR_T(KC_DEL), FN_BRIU, KC_BRID
+        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                  KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_RBRC,
+        HM_ESC, KC_A,    HM_S,    HM_D,    HM_F,    KC_G,                                  KC_H,    HM_J,    HM_K,    HM_L,    HM_SCLN, KC_QUOT,
+        CW_TOGG, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_NO,    KC_NO,              KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
+                          KC_VOLD, FN_VOLU, HYPR_T(KC_NO), NAV_SPC, NUM_ENT, NUM_BSP, NAV_SPC, HYPR_T(KC_DEL), FN_BRIU, KC_BRID
     ),
 
     [_NAV] = LAYOUT(
@@ -46,17 +46,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NUM] = LAYOUT(
         KC_F12,  KC_F1,         KC_F2,         KC_F3,         KC_F4,         KC_F5,                          KC_F6,         KC_F7,         KC_F8,         KC_F9,          KC_F10,         KC_F11,
-        KC_ESC,  S(KC_1),       S(KC_2),       S(KC_3),       S(KC_4),       S(KC_5),                        S(KC_7),       KC_7,          KC_8,          KC_9,           KC_EQL,         KC_LBRC,
+        KC_TAB,  S(KC_1),       S(KC_2),       S(KC_3),       S(KC_4),       S(KC_5),                        S(KC_7),       KC_7,          KC_8,          KC_9,           KC_EQL,         KC_LBRC,
         LALT(KC_2), KC_LCTL,    KC_LALT,       KC_LGUI,       KC_LSFT,       S(KC_NUHS),                     S(KC_EQL),     KC_4,          KC_5,          KC_6,           LALT(KC_EQL),   KC_NUHS,
         KC_NUBS, S(KC_6),       LALT(KC_3),    S(KC_8),       S(KC_9),       S(KC_0), KC_TRNS, KC_TRNS,     KC_0,          KC_1,          KC_2,          KC_3,           KC_SLSH,        KC_ENT,
-                           KC_F2, KC_F4, KC_TAB, KC_SPC, KC_ENT, KC_BSPC, KC_SPC, S(KC_0), KC_COMM, KC_DOT
+                           KC_F2, KC_F4, HYPR_T(KC_ESC), KC_SPC, RGUI(KC_ENT), KC_BSPC, KC_SPC, S(KC_0), KC_COMM, KC_DOT
     ),
 
     [_FN] = LAYOUT(
         KC_NO,   KC_NO,         KC_NO,         KC_NO,         KC_NO,         KC_NO,                          KC_NO,         KC_NO,         KC_NO,         KC_NO,          KC_NO,          KC_NO,
-        KC_ESC,  G(C(S(A(KC_1)))), G(C(S(A(KC_2)))), G(C(S(A(KC_3)))), G(C(S(A(KC_4)))), G(C(S(A(KC_5)))), C(S(KC_1)),    C(S(KC_W)),    C(S(KC_E)),    C(S(KC_R)),     C(S(KC_T)),     C(S(KC_3)),
-        KC_NO,   G(C(S(A(KC_6)))), G(C(S(A(KC_7)))), G(C(S(A(KC_8)))), G(C(S(A(KC_9)))), G(C(S(A(KC_0)))), C(S(KC_2)),    C(S(KC_S)),    C(S(KC_D)),    C(S(KC_F)),     C(S(KC_G)),     C(S(KC_4)),
-        QK_BOOT, KC_NO,         KC_MPRV,       KC_MPLY,       KC_MNXT,       KC_NO,   KC_TRNS, KC_TRNS,      C(S(KC_Z)),    C(S(KC_X)),    C(S(KC_C)),    C(S(KC_V)),     C(S(KC_B)),     C(S(KC_5)),
+        KC_TAB,  G(C(S(A(KC_1)))), G(C(S(A(KC_2)))), G(C(S(A(KC_3)))), G(C(S(A(KC_4)))), G(C(S(A(KC_5)))), C(S(KC_1)),    C(S(KC_W)),    C(S(KC_E)),    C(S(KC_R)),     C(S(KC_T)),     C(S(KC_3)),
+        KC_ESC,   G(C(S(A(KC_6)))), G(C(S(A(KC_7)))), G(C(S(A(KC_8)))), G(C(S(A(KC_9)))), G(C(S(A(KC_0)))), C(S(KC_2)),    C(S(KC_S)),    C(S(KC_D)),    C(S(KC_F)),     C(S(KC_G)),     C(S(KC_4)),
+        KC_CAPSLOCK,   KC_NO,         KC_MPRV,       KC_MPLY,       KC_MNXT,       KC_NO,   KC_TRNS, KC_TRNS,      C(S(KC_Z)),    C(S(KC_X)),    C(S(KC_C)),    C(S(KC_V)),     C(S(KC_B)),     C(S(KC_5)),
                            KC_VOLD, KC_VOLU, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BRIU, KC_BRID
     )
 };
