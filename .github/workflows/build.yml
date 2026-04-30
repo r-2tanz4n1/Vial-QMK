@@ -36,9 +36,7 @@ jobs:
         working-directory: vial-qmk
         run: |
           python3 -m pip install --upgrade pip
-          # Keep qmk CLI and milc in sync with each other
           python3 -m pip install --upgrade qmk milc
-          # Then install Vial-QMK’s own requirements on top
           python3 -m pip install --upgrade -r requirements.txt
 
       - name: Copy Sofle Blue files
@@ -46,20 +44,39 @@ jobs:
           mkdir -p vial-qmk/keyboards/sofle
           cp -r custom/keyboards/sofle/blue vial-qmk/keyboards/sofle/
 
-      - name: Build firmware
+      - name: Copy Corne 4.1 files
+        run: |
+          mkdir -p vial-qmk/keyboards/crkbd/rev4/keymaps
+          cp -r custom/keyboards/crkbd/rev4/keymaps/vial vial-qmk/keyboards/crkbd/rev4/keymaps/
+
+      - name: Build Sofle Blue firmware
         working-directory: vial-qmk
         run: qmk compile -kb sofle/blue -km vial -e CONVERT_TO=promicro_rp2040
+
+      - name: Build Corne 4.1 firmware
+        working-directory: vial-qmk
+        run: qmk compile -kb crkbd/rev4 -km vial
 
       - name: Find firmware files
         run: |
           find vial-qmk -type f \( -name "*.uf2" -o -name "*.hex" -o -name "*.bin" \)
 
-      - name: Upload firmware
+      - name: Upload Sofle Blue firmware
         uses: actions/upload-artifact@v4
         with:
           name: sofle-blue-vial-firmware
           path: |
-            vial-qmk/**/*.uf2
-            vial-qmk/**/*.hex
-            vial-qmk/**/*.bin
+            vial-qmk/**/*sofle*.uf2
+            vial-qmk/**/*sofle*.hex
+            vial-qmk/**/*sofle*.bin
+          if-no-files-found: error
+
+      - name: Upload Corne 4.1 firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: corne-4.1-vial-firmware
+          path: |
+            vial-qmk/**/*crkbd*.uf2
+            vial-qmk/**/*crkbd*.hex
+            vial-qmk/**/*crkbd*.bin
           if-no-files-found: error
