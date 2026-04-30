@@ -32,9 +32,14 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE/custom"
           git config --global --add safe.directory "$GITHUB_WORKSPACE/vial-qmk"
 
-      - name: Install Vial-QMK Python requirements
+      - name: Install QMK/Vial Python dependencies
         working-directory: vial-qmk
-        run: python3 -m pip install -U -r requirements.txt
+        run: |
+          python3 -m pip install --upgrade pip
+          # Keep qmk CLI and milc in sync with each other
+          python3 -m pip install --upgrade qmk milc
+          # Then install Vial-QMK’s own requirements on top
+          python3 -m pip install --upgrade -r requirements.txt
 
       - name: Copy Sofle Blue files
         run: |
