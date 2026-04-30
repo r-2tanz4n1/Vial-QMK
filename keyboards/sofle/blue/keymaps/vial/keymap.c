@@ -38,10 +38,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NAV] = LAYOUT(
         KC_NO,   KC_6,          KC_7,          KC_8,          KC_9,          KC_0,                           KC_1,          KC_2,          KC_3,          KC_4,            KC_5,             KC_NO,
-        KC_ESC,  LGUI(KC_Q),    LGUI(KC_W),    LGUI(KC_S),    LGUI(KC_R),    LGUI(KC_T),                     LGUI(KC_T),    LGUI(KC_I),    KC_UP,         C(S(KC_LEFT)),   C(S(KC_RGHT)),   LGUI(KC_BSPC),
-        LGUI(KC_A), KC_LCTL,    KC_LALT,       KC_LGUI,       KC_LSFT,       LGUI(KC_F),                     HYPR(KC_H),    KC_LEFT,       KC_DOWN,       KC_RGHT,         LGUI(KC_K),       LGUI(KC_L),
-        C(S(KC_Q)), LGUI(KC_Z), LGUI(KC_X),    LGUI(KC_C),    LGUI(KC_V),    LGUI(KC_B), KC_TRNS, KC_TRNS,  KC_SPC,        LGUI(KC_M),    LGUI(KC_C),    LGUI(KC_V),      RGUI(KC_Z),       KC_ENT,
-                           KC_MUTE, SGUI(KC_M), HYPR_T(KC_TAB), KC_SPC, KC_ENT, KC_BSPC, KC_SPC, HYPR(C(S(A(KC_UP)))), C(S(KC_DOWN)), LGUI(KC_H)
+        C(S(KC_Q)),  LGUI(KC_Q),    LGUI(KC_W),    LGUI(KC_S),    LGUI(KC_R),    LGUI(KC_T),                     LGUI(KC_T),    LGUI(KC_I),    KC_UP,         C(S(KC_UP)),   C(S(KC_RGHT)),   LGUI(KC_BSPC),
+        LGUI(KC_A), KC_LCTL,    KC_LALT,       KC_LGUI,       KC_LSFT,       LGUI(KC_F),                    HYPR(KC_H),    KC_LEFT,       KC_DOWN,       KC_RGHT,         LGUI(KC_L),       LGUI(KC_H),
+        KC_CAPSLOCK, LGUI(KC_Z), LGUI(KC_X),    LGUI(KC_C),    LGUI(KC_V),    LGUI(KC_B), KC_TRNS, KC_TRNS,  LGUI(KC_K),     LGUI(KC_M),    LGUI(KC_C),    LGUI(KC_V),      RGUI(KC_X),       KC_ENT,
+                           KC_MUTE, SGUI(KC_M), HYPR_T(KC_TAB), KC_SPC, KC_ENT, KC_BSPC, KC_SPC, HYPR(KC_NO), C(S(KC_DOWN)), C(S(KC_LEFT))
     ),
 
     [_NUM] = LAYOUT(
