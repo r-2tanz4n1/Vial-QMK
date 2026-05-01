@@ -5,6 +5,12 @@
     "matrix": {"rows": 8, "cols": 7},
     "lighting": "vialrgb",
     "layouts": {
+        "labels": [
+            ["Left EX1",  "Key", "Encoder", "None"],
+            ["Left EX2",  "Key", "Encoder", "None"],
+            ["Right EX1", "Key", "Encoder", "None"],
+            ["Right EX2", "Key", "Encoder", "None"]
+        ],
         "keymap": [
             [{"y": 1, "x": 3.5}, "0,3", {"x": 7.5}, "4,3"],
             [{"y": -0.875, "x": 2.5}, "0,2", {"x": 1}, "0,4", {"x": 5.5}, "4,4", {"x": 1}, "4,2"],
