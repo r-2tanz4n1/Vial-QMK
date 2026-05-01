@@ -44,18 +44,18 @@ jobs:
           mkdir -p vial-qmk/keyboards/sofle
           cp -r custom/keyboards/sofle/blue vial-qmk/keyboards/sofle/
 
-      - name: Copy Corne 4.1 files
+      - name: Copy Corne files
         run: |
-          mkdir -p vial-qmk/keyboards/crkbd/rev4/keymaps
-          cp -r custom/keyboards/crkbd/rev4/keymaps/vial vial-qmk/keyboards/crkbd/rev4/keymaps/
+          mkdir -p vial-qmk/keyboards/crkbd/keymaps
+          cp -r custom/keyboards/crkbd/keymaps/vial vial-qmk/keyboards/crkbd/keymaps/
 
       - name: Build Sofle Blue firmware
         working-directory: vial-qmk
         run: qmk compile -kb sofle/blue -km vial -e CONVERT_TO=promicro_rp2040
 
-      - name: Build Corne 4.1 firmware
+      - name: Build Corne firmware
         working-directory: vial-qmk
-        run: qmk compile -kb crkbd/rev4 -km vial
+        run: qmk compile -kb crkbd -km vial
 
       - name: Find firmware files
         run: |
@@ -71,10 +71,10 @@ jobs:
             vial-qmk/**/*sofle*.bin
           if-no-files-found: error
 
-      - name: Upload Corne 4.1 firmware
+      - name: Upload Corne firmware
         uses: actions/upload-artifact@v4
         with:
-          name: corne-4.1-vial-firmware
+          name: corne-vial-firmware
           path: |
             vial-qmk/**/*crkbd*.uf2
             vial-qmk/**/*crkbd*.hex
