@@ -44,18 +44,19 @@ jobs:
           mkdir -p vial-qmk/keyboards/sofle
           cp -r custom/keyboards/sofle/blue vial-qmk/keyboards/sofle/
 
-      - name: Copy Corne files
+      - name: Copy Corne v4.1 keymap
         run: |
-          mkdir -p vial-qmk/keyboards/crkbd/keymaps
-          cp -r custom/keyboards/crkbd/keymaps/vial vial-qmk/keyboards/crkbd/keymaps/
+          mkdir -p vial-qmk/keyboards/crkbd/rev4_1/standard/keymaps
+          cp -r custom/keyboards/crkbd/rev4_1/standard/keymaps/vial \
+          vial-qmk/keyboards/crkbd/rev4_1/standard/keymaps/
 
       - name: Build Sofle Blue firmware
         working-directory: vial-qmk
         run: qmk compile -kb sofle/blue -km vial -e CONVERT_TO=promicro_rp2040
 
-      - name: Build Corne firmware
+      - name: Build Corne v4.1 firmware
         working-directory: vial-qmk
-        run: qmk compile -kb crkbd -km vial
+        run: qmk compile -kb crkbd/rev4_1/standard -km vial
 
       - name: Find firmware files
         run: |
