@@ -13,7 +13,7 @@ enum layers {
 #define NAV_SPC LT(_NAV, KC_SPC)
 #define NUM_ENT LT(_NUM, KC_ENT)
 #define FN_ENT LT(_FN, KC_ENT)
-#define FN_BKS LT(_FN, KC_BSPACE)
+#define FN_BKS LT(_FN, KC_BSPC)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -23,9 +23,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
        HM_ESC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G, KC_VOLD,    KC_BRID,    KC_H,    KC_J,    KC_K,    KC_L, HM_SCLN, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------+--------'  `--------+--------+--------+--------+--------+--------+--------|
-    KC_LSHIFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, RSFT_T(KC_ENT),
+      KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, RSFT_T(KC_ENT),
   //|--------+--------+--------+--------+--------+--------+--------.  ,--------+--------+--------+--------+--------+--------+--------|
-                           LALT_T(KC_F2), LGUI_T(KC_SPACE), NUM_ENT,    RGUI_T(KC_BSPACE), NAV_SPC, HYPR_T(KC_DEL)
+                           LALT_T(KC_F2), LGUI_T(KC_SPACE), NUM_ENT,    RGUI_T(KC_BSPC), NAV_SPC, HYPR_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -36,9 +36,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
        HM_ESC, HYPR(KC_A), KC_LALT, KC_LGUI, KC_LSFT, HYPR(KC_G), KC_MUTE, C(S(KC_LEFT)), HYPR(KC_H),  KC_LEFT, KC_DOWN, KC_RGHT, LGUI(KC_L), KC_NO,
   //|--------+--------+--------+--------+--------+--------+--------'  `--------+--------+--------+--------+--------+--------+--------|
-    KC_LSHIFT, HYPR(KC_Z), HYPR(KC_X), HYPR(KC_C), HYPR(KC_V), HYPR(KC_B), LGUI(KC_K), LGUI(KC_Z), LGUI(KC_C), LGUI(KC_V), RGUI(KC_X), RSFT_T(KC_ENT),
+      KC_LSFT, HYPR(KC_Z), HYPR(KC_X), HYPR(KC_C), HYPR(KC_V), HYPR(KC_B), LGUI(KC_K), LGUI(KC_Z), LGUI(KC_C), LGUI(KC_V), RGUI(KC_X), RSFT_T(KC_ENT),
   //|--------+--------+--------+--------+--------+--------+--------.  ,--------+--------+--------+--------+--------+--------+--------|
-                            LALT_T(KC_F2), LGUI_T(KC_SPACE), FN_ENT,  FN_BKS, KC_SPC, C(S(Q))
+                            LALT_T(KC_F2), LGUI_T(KC_SPACE), FN_ENT,  FN_BKS, KC_SPC, C(S(KC_Q))
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
     HM_ESC, LALT(KC_2), LALT(KC_3), KC_LGUI, KC_LSFT, S(KC_NUHS), KC_NUBS,    KC_DOT,  S(KC_EQL), KC_4,  KC_5,  KC_6,  LALT(KC_EQL), KC_NUHS,
   //|--------+--------+--------+--------+--------+--------+--------'  `--------+--------+--------+--------+--------+--------+--------|
-  KC_CAPSLOCK, S(KC_6), LALT(KC_3), S(KC_8), S(KC_9), S(KC_0),                        KC_0,   KC_1,     KC_2,    KC_3,   KC_SLSH,  RSFT_T(KC_ENT),
+  KC_CAPS_LOCK, S(KC_6), LALT(KC_3), S(KC_8), S(KC_9), S(KC_0),                        KC_0,   KC_1,     KC_2,    KC_3,   KC_SLSH,  RSFT_T(KC_ENT),
   //|--------+--------+--------+--------+--------+--------+--------.  ,--------+--------+--------+--------+--------+--------+--------|
                               LALT_T(KC_F2), KC_SPC, KC_ENT,     KC_BSPC, KC_SPC, S(KC_0)
                                       //`--------------------------'  `--------------------------'
@@ -60,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
   RGB_HUI, G(C(S(A(KC_6)))), G(C(S(A(KC_7)))), G(C(S(A(KC_8)))), G(C(S(A(KC_9)))), G(C(S(A(KC_0)))), RGB_TOG, RGB_VAD, C(S(KC_2)),    C(S(KC_S)),    C(S(KC_D)),    C(S(KC_F)),     C(S(KC_G)),     C(S(KC_4)),
   //|--------+--------+--------+--------+--------+--------+--------'  `--------+--------+--------+--------+--------+--------+--------|
-  RGB_HUD, RGB_HUD, KC_NO, KC_MPRV, KC_MPLY, KC_MNXT, KC_NO,            C(S(KC_Z)),    C(S(KC_X)),    C(S(KC_C)),    C(S(KC_V)),     C(S(KC_B)),     C(S(KC_5)),
+  RGB_HUD, KC_NO, KC_MPRV, KC_MPLY, KC_MNXT, KC_NO,            C(S(KC_Z)),    C(S(KC_X)),    C(S(KC_C)),    C(S(KC_V)),     C(S(KC_B)),     C(S(KC_5)),
   //|--------+--------+--------+--------+--------+--------+--------.  ,--------+--------+--------+--------+--------+--------+--------|
                                               KC_NO, KC_NO, KC_NO,      KC_NO, KC_NO, KC_NO
                                       //`--------------------------'  `--------------------------'
